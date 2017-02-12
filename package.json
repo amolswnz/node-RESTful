@@ -9,8 +9,10 @@
   "author": "Amol Wankhede",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "gulp": "^3.9.1",
-    "gulp-nodemon": "^2.2.1"
+    "gulp-nodemon": "^2.2.1",
+    "mongoose": "^4.8.2"
   }
 }

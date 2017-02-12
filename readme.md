@@ -7,4 +7,9 @@ npm install gulp
 npm install gulp-nodemon
 
 ### To run the server
-gulp
+Create configuration in gulpfile.js
+
+Run gulp
+
+
+npm install mongoose --save
