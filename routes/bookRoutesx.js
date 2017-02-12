@@ -25,6 +25,20 @@ var routes = function(Book) {
             book.save();
             res.status(201).send(book);
         });
+    //
+    // bookRouter.use('/:bookId',  function(req, res, next) {
+    //     Book.findById(req.params.bookId, function(err, book) {
+    //         if(err) {
+    //             res.status(500).send(err);
+    //         }
+    //         else if(book) {
+    //             req.book = book;
+    //             next();
+    //         } else {
+    //             req.status(404).send('No book found');
+    //         }
+    //     });
+    // });
 
     bookRouter.route('/:bookId')
         .get(function(req, res) {
@@ -36,46 +50,34 @@ var routes = function(Book) {
                     res.json(book);
                 }
             });
+            // res.json(req.book);
         })
         .put(function(req, res) {
             Book.findById(req.params.bookId, function(err, book) {
-                if(err) {
+            book.title = req.body.title;
+            book.author = req.body.author;
+            book.genre = req.body.genre;
+            book.read = req.body.read;
+            book.save(function(err) {
+                if(err)
                     res.status(500).send(err);
-                }
-                else {
-                    book.title = req.body.title;
-                    book.author = req.body.author;
-                    book.genre = req.body.genre;
-                    book.read = req.body.read;
-                    book.save(function(err) {
-                        if(err)
-                            res.status(500).send(err);
-                        else
-                            res.json(book);
-                    });
-                }
+                else
+                    res.json(book);
             });
         })
         .patch(function(req, res) {
-            Book.findById(req.params.bookId, function(err, book) {
-                if(err) {
-                    res.status(500).send(err);
-                }
-                else {
-                    // console.log(req.body);
-                    if(req.body._id)
-                        delete req.body._id;
-                    for(var key in req.body) {
-                        book[key] = req.body[key];
-                    }
-                    book.save(function(err) {
-                        if(err)
-                            res.status(500).send(err);
-                        else
-                            res.json(book);
-                    });
-                }
-            });
+            // if(req.body._id)
+            //     delete req.body._id;
+            // for(var key in req.body) {
+            //     req.book[key] = req.body[key];
+            // }
+            // req.book.save(function(err) {
+            //     if(err)
+            //         res.status(500).send(err);
+            //     else
+            //         res.json(book);
+            // });
+            res.json(book);
         });
 
     return bookRouter;
