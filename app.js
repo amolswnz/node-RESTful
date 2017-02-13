@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-var db = mongoose.connect('mongodb://aw101:l1wds2GBcDzq!%Wy@ds151059.mlab.com:51059/learning');
+var db = mongoose.connect('mongodb://localhost/bookAPI');
 
 var Book = require('./models/bookModel');
 
