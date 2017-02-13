@@ -5,9 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js",
-        "postinstall": "./node_modules/bower/bin/bower install"
-
+    "start": "app.js"
   },
   "author": "Amol Wankhede",
   "license": "ISC",
@@ -17,7 +15,5 @@
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
     "mongoose": "^4.8.2",
-        "bower": "0.6.x"
-
   }
 }
